@@ -1,0 +1,67 @@
+<div class="container">
+
+	<div style="width: 80%; margin: auto; padding-bottom: 50px;">
+		<form [formGroup]="angularForm" novalidate>
+		<br/>
+			<div class="alert alert-warning">{{message}}</div>
+			<div class="input">
+					<label>Origin</label>
+					<input class="form-control" formControlName="origin" type="text" style="display:inline-block; " />
+
+					<label>Destination</label>
+					<input class="form-control"
+					formControlName="destination" type="text" style="display:inline-block;"/>
+
+					<label>Flight Number</label>
+					<input class="form-control" formControlName="flightNumber"
+						type="text" style="display:inline-block; "/>
+
+					<label>Arrival/Departure Date*</label>
+					<input class="form-control" formControlName="fdate" type="date" style="display:inline-block;"/>
+			</div>
+			<br />
+
+			<div style="text-align: center">
+				<button (click)="searchFlights()"
+					[disabled]="angularForm.pristine || angularForm.invalid"
+					class="btn" style="color: yellow; background: blue;">Search</button>
+			</div>
+
+			<br />
+
+		</form>
+		<br />
+		<div *ngIf="flights?.length > 0">
+
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Flight Number</th>
+						<th>Carrier</th>
+						<th>Origin</th>
+						<th>Departure time</th>
+						<th>Destination</th>
+						<th>Arrival time</th>
+						<th>Status</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let flight of flights  ">
+
+						<td>{{flight.flightNumber}}</td>
+						<td>{{flight.carrier}}</td>
+						<td>{{flight.origin}}</td>
+						<td>{{flight.departure}}</td>
+						<td>{{flight.destination}}</td>
+						<td>{{flight.arrival}}</td>
+						<td>{{flight.status}}</td>
+
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+
+</div>

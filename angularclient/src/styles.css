@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+div.input {
+    display:grid;
+    grid-template-columns: max-content max-content;
+    grid-gap:5px;
+    margin-left:300px;
+}
+div.input label       { text-align:right; }
+div.input label:after { content: ":"; }
